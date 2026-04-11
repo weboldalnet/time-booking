@@ -1,6 +1,6 @@
 {
-    "name": "weboldalnet/package-template",
-    "description": "teszt",
+    "name": "weboldalnet/time-booking",
+    "description": "Időpontfoglaló",
     "type": "library",
     "autoload": {
         "psr-4": {
