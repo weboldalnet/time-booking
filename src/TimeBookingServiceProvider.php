@@ -1,43 +1,43 @@
 <?php
 
-namespace Weboldalnet\PackageTemplate;
+namespace Weboldalnet\TimeBooking;
 
 use Illuminate\Support\ServiceProvider;
-use Weboldalnet\PackageTemplate\Support\PackageHelper;
-use Weboldalnet\PackageTemplate\Console\ExtendViewsTimeBookingCommand;
-use Weboldalnet\PackageTemplate\Console\InstallTimeBookingCommand;
 
 class TimeBookingServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        // route-ok
+        // Load routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../settings/views', PackageHelper::PACKAGE_PREFIX);
 
-        // migrációk
-        //$this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // Load views
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'timebooking');
 
-        $publishList = [];
-        foreach (PackageHelper::PACKAGE_LIST as $name => $publish) {
-            $this->publishes([
-                $publish['source'] => base_path($publish['destination']),
-            ], PackageHelper::PACKAGE_PREFIX . '-' . $name);
+        // Load migrations
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-            $publishList[$publish['source']] = base_path($publish['destination']);
-        }
+        // Publish views
+        $this->publishes([
+            __DIR__.'/../resources/views/admin' => resource_path('views/admin'),
+            __DIR__.'/../resources/views/site' => resource_path('views/site'),
+        ], 'timebooking-views');
 
-        $this->publishes($publishList, PackageHelper::PACKAGE_PREFIX . '-all');
+        // Publish assets
+        $this->publishes([
+            __DIR__.'/../public' => public_path('timebooking'),
+        ], 'timebooking-assets');
+
+        // Publish all
+        $this->publishes([
+            __DIR__.'/../resources/views/admin' => resource_path('views/admin'),
+            __DIR__.'/../resources/views/site' => resource_path('views/site'),
+            __DIR__.'/../public' => public_path('timebooking'),
+        ], 'timebooking-all');
     }
 
     public function register()
     {
-        $this->commands([
-            InstallTimeBookingCommand::class,
-        ]);
-
-        $this->commands([
-            ExtendViewsTimeBookingCommand::class,
-        ]);
+        // Register any application services
     }
 }

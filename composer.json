@@ -1,21 +1,24 @@
 {
     "name": "weboldalnet/time-booking",
-    "description": "Időpontfoglaló",
+    "description": "Időpontfoglaló modul Laravel 11-hez",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Weboldalnet\\PackageTemplate\\": "src/"
+            "Weboldalnet\\TimeBooking\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Weboldalnet\\PackageTemplate\\TimeBookingServiceProvider"
+                "Weboldalnet\\TimeBooking\\TimeBookingServiceProvider"
             ],
             "aliases": {
-                "TimeBookingServiceProvider": "Weboldalnet\\PackageTemplate\\TimeBookingServiceProvider"
+                "TimeBookingServiceProvider": "Weboldalnet\\TimeBooking\\TimeBookingServiceProvider"
             }
         }
     },
-    "require": {}
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0"
+    }
 }
