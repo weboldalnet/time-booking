@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Weboldalnet\PackageTemplate\Support\PackageHelper;
 
-class ExtendViewsArticlesCommand extends Command
+class ExtendViewsTimeBookingCommand extends Command
 {
     protected $signature = PackageHelper::PACKAGE_PREFIX . ':extend {--view=}';
     protected $description = 'Fájl kiegészítések';

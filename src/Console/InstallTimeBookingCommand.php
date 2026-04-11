@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Weboldalnet\PackageTemplate\Support\PackageHelper;
 
-class InstallArticlesCommand extends Command
+class InstallTimeBookingCommand extends Command
 {
     protected $signature = PackageHelper::PACKAGE_PREFIX . ':install {--tag=}';
     protected $description = PackageHelper::PACKAGE_NAME . ' fájlok publikálása a projectbe';
@@ -18,7 +18,7 @@ class InstallArticlesCommand extends Command
         $this->info(PackageHelper::PACKAGE_NAME . ' fájlok publikálása a projectbe...');
 
         Artisan::call('vendor:publish', [
-            '--provider' => 'Weboldalnet\\PackageTemplate\\ArticleServiceProvider',
+            '--provider' => 'Weboldalnet\\PackageTemplate\\TimeBookingServiceProvider',
             '--tag' => $tag,
             '--force' => true,
         ]);

@@ -10,10 +10,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Weboldalnet\\PackageTemplate\\ArticleServiceProvider"
+                "Weboldalnet\\PackageTemplate\\TimeBookingServiceProvider"
             ],
             "aliases": {
-                "ArticleServiceProvider": "Weboldalnet\\PackageTemplate\\ArticleServiceProvider"
+                "TimeBookingServiceProvider": "Weboldalnet\\PackageTemplate\\TimeBookingServiceProvider"
             }
         }
     },

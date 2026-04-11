@@ -4,10 +4,10 @@ namespace Weboldalnet\PackageTemplate;
 
 use Illuminate\Support\ServiceProvider;
 use Weboldalnet\PackageTemplate\Support\PackageHelper;
-use Weboldalnet\PackageTemplate\Console\ExtendViewsArticlesCommand;
-use Weboldalnet\PackageTemplate\Console\InstallArticlesCommand;
+use Weboldalnet\PackageTemplate\Console\ExtendViewsTimeBookingCommand;
+use Weboldalnet\PackageTemplate\Console\InstallTimeBookingCommand;
 
-class ArticleServiceProvider extends ServiceProvider
+class TimeBookingServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -33,11 +33,11 @@ class ArticleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            InstallArticlesCommand::class,
+            InstallTimeBookingCommand::class,
         ]);
 
         $this->commands([
-            ExtendViewsArticlesCommand::class,
+            ExtendViewsTimeBookingCommand::class,
         ]);
     }
 }
