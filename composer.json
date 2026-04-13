@@ -4,7 +4,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Weboldalnet\\TimeBooking\\": "src/"
+            "Weboldalnet\\TimeBooking\\":["src/", "app/"]
         }
     },
     "extra": {
