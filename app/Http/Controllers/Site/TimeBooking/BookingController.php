@@ -83,7 +83,7 @@ class BookingController extends Controller
             'email' => $validated['email'],
             'phone' => $validated['phone'],
             'message' => $validated['message'],
-            'status' => Booking::STATUS_CONFIRMED, // Auto-confirm bookings
+            'status' => config('timebooking.booking.auto_confirm') ? Booking::STATUS_CONFIRMED : Booking::STATUS_PENDING,
             'booking_date' => now(),
         ]);
 

@@ -13,11 +13,11 @@
                         <i class="fas fa-arrow-left"></i> Vissza a listához
                     </a>
                 </div>
-                
+
                 <div class="card-body">
                     <form action="{{ route('admin.timebooking.appointments.store') }}" method="POST">
                         @csrf
-                        
+
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
@@ -70,7 +70,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="start_time" class="form-label">Kezdés időpontja <span class="text-danger">*</span></label>
@@ -108,13 +108,13 @@
                                            class="form-control @error('capacity') is-invalid @enderror" 
                                            id="capacity" 
                                            name="capacity" 
-                                           value="{{ old('capacity', 1) }}" 
+                                           value="{{ old('capacity', config('timebooking.booking.default_capacity')) }}" 
                                            min="1" 
-                                           max="100" 
-                                           placeholder="1"
+                                           max="{{ config('timebooking.booking.max_capacity') }}" 
+                                           placeholder="{{ config('timebooking.booking.default_capacity') }}"
                                            required>
                                     <small class="form-text text-muted">
-                                        Maximum 100 fő
+                                        Maximum {{ config('timebooking.booking.max_capacity') }} fő
                                     </small>
                                     @error('capacity')
                                         <div class="invalid-feedback">
@@ -165,12 +165,12 @@
 $(document).ready(function() {
     // Auto-focus on category field
     $('#category_id').focus();
-    
+
     // Set minimum date to today
     var now = new Date();
     var minDateTime = now.toISOString().slice(0, 16);
     $('#start_time, #end_time').attr('min', minDateTime);
-    
+
     // Auto-set end time when start time changes
     $('#start_time').on('change', function() {
         var startTime = new Date($(this).val());
@@ -180,29 +180,29 @@ $(document).ready(function() {
             $('#end_time').val(endTimeString);
         }
     });
-    
+
     // Validate end time is after start time
     $('#end_time').on('change', function() {
         var startTime = new Date($('#start_time').val());
         var endTime = new Date($(this).val());
-        
+
         if (startTime && endTime && endTime <= startTime) {
             alert('A befejezés időpontja a kezdés után kell legyen!');
             $(this).focus();
         }
     });
-    
+
     // Character counter for description
     $('#description').on('input', function() {
         const maxLength = 1000;
         const currentLength = $(this).val().length;
-        
+
         if (!$('#char-counter').length) {
             $(this).after('<small id="char-counter" class="form-text text-muted"></small>');
         }
-        
+
         $('#char-counter').text(`${currentLength}/${maxLength} karakter`);
-        
+
         if (currentLength > maxLength * 0.9) {
             $('#char-counter').removeClass('text-muted').addClass('text-warning');
         } else {

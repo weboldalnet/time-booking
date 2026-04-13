@@ -68,7 +68,7 @@ class AppointmentController extends AdminExtendedController
             'description' => 'nullable|string',
             'start_time' => 'required|date|after:now',
             'end_time' => 'required|date|after:start_time',
-            'capacity' => 'required|integer|min:1|max:100',
+            'capacity' => 'required|integer|min:1|max:' . config('timebooking.booking.max_capacity'),
             'is_active' => 'boolean',
         ]);
 
@@ -122,7 +122,7 @@ class AppointmentController extends AdminExtendedController
             'description' => 'nullable|string',
             'start_time' => 'required|date|after:now',
             'end_time' => 'required|date|after:start_time',
-            'capacity' => 'required|integer|min:1|max:100',
+            'capacity' => 'required|integer|min:1|max:' . config('timebooking.booking.max_capacity'),
             'is_active' => 'boolean',
         ]);
 
@@ -186,7 +186,7 @@ class AppointmentController extends AdminExtendedController
             'end_date' => 'required|date|after_or_equal:start_date',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i|after:start_time',
-            'capacity' => 'required|integer|min:1|max:100',
+            'capacity' => 'required|integer|min:1|max:' . config('timebooking.booking.max_capacity'),
             'days' => 'required|array|min:1',
             'days.*' => 'in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
             'is_active' => 'boolean',
