@@ -158,7 +158,7 @@
 <script>
 function confirmDelete(categoryId, categoryName) {
     document.getElementById('categoryName').textContent = categoryName;
-    document.getElementById('deleteForm').action = '/admin/timebooking/categories/' + categoryId;
+    document.getElementById('deleteForm').action = '/timebooking/categories/' + categoryId;
     $('#deleteModal').modal('show');
 }
 </script>

@@ -269,7 +269,7 @@
 <script>
 function confirmDelete(appointmentId, appointmentTitle) {
     document.getElementById('appointmentTitle').textContent = appointmentTitle;
-    document.getElementById('deleteForm').action = '/admin/timebooking/appointments/' + appointmentId;
+    document.getElementById('deleteForm').action = '/timebooking/appointments/' + appointmentId;
     $('#deleteModal').modal('show');
 }
 
@@ -286,7 +286,7 @@ function showBookings(appointmentId) {
     `);
     
     // Load bookings via AJAX
-    $.get(`/admin/timebooking/appointments/${appointmentId}/bookings`)
+    $.get(`/timebooking/appointments/${appointmentId}/bookings`)
         .done(function(data) {
             let content = `<h6>${data.appointment.title}</h6>`;
             content += `<p class="text-muted">${data.appointment.start_time} - ${data.appointment.end_time}</p>`;

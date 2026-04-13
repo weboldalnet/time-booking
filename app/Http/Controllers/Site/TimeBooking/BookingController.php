@@ -138,8 +138,8 @@ class BookingController extends Controller
      */
     public function checkAvailability(Appointment $appointment)
     {
-        $isAvailable = $appointment->is_active && 
-                      !$appointment->is_fully_booked && 
+        $isAvailable = $appointment->is_active &&
+                      !$appointment->is_fully_booked &&
                       $appointment->start_time > now();
 
         return response()->json([

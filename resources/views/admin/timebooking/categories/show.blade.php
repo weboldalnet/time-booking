@@ -219,7 +219,7 @@ function showBookings(appointmentId) {
     `);
     
     // Load bookings via AJAX
-    $.get(`/admin/timebooking/appointments/${appointmentId}/bookings`)
+    $.get(`/timebooking/appointments/${appointmentId}/bookings`)
         .done(function(data) {
             let content = `<h6>${data.appointment.title}</h6>`;
             content += `<p class="text-muted">${data.appointment.start_time} - ${data.appointment.end_time}</p>`;

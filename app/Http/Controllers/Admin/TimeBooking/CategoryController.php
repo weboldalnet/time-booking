@@ -2,13 +2,14 @@
 
 namespace Weboldalnet\TimeBooking\Http\Controllers\Admin\TimeBooking;
 
+use App\Http\Controllers\Admin\AdminExtendedController;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Weboldalnet\TimeBooking\Models\Category;
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class CategoryController extends AdminExtendedController
 {
     /**
      * Display a listing of categories.

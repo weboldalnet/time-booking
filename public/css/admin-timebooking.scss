@@ -803,61 +803,61 @@ $transition-fade: opacity 0.15s linear;
 }
 
 // Dark mode support (optional)
-@media (prefers-color-scheme: dark) {
-    .admin-timebooking {
-        background-color: #1a202c;
-        color: #e2e8f0;
-        
-        .admin-card {
-            background: #2d3748;
-            border-color: #4a5568;
-            color: #e2e8f0;
-            
-            .card-header {
-                background-color: #374151;
-                border-color: #4a5568;
-            }
-            
-            .card-footer {
-                background-color: #374151;
-                border-color: #4a5568;
-            }
-        }
-        
-        .admin-table {
-            background: #2d3748;
-            
-            .table {
-                color: #e2e8f0;
-                
-                thead th {
-                    background-color: #1a202c;
-                    color: #e2e8f0;
-                }
-                
-                tbody tr:hover {
-                    background-color: rgba(66, 153, 225, 0.1);
-                }
-                
-                tbody td {
-                    border-color: #4a5568;
-                }
-            }
-        }
-        
-        .form-control {
-            background-color: #4a5568;
-            border-color: #718096;
-            color: #e2e8f0;
-            
-            &::placeholder {
-                color: #a0aec0;
-            }
-        }
-        
-        .modal-content {
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-    }
-}
+//@media (prefers-color-scheme: dark) {
+//    .admin-timebooking {
+//        background-color: #1a202c;
+//        color: #e2e8f0;
+//
+//        .admin-card {
+//            background: #2d3748;
+//            border-color: #4a5568;
+//            color: #e2e8f0;
+//
+//            .card-header {
+//                background-color: #374151;
+//                border-color: #4a5568;
+//            }
+//
+//            .card-footer {
+//                background-color: #374151;
+//                border-color: #4a5568;
+//            }
+//        }
+//
+//        .admin-table {
+//            background: #2d3748;
+//
+//            .table {
+//                color: #e2e8f0;
+//
+//                thead th {
+//                    background-color: #1a202c;
+//                    color: #e2e8f0;
+//                }
+//
+//                tbody tr:hover {
+//                    background-color: rgba(66, 153, 225, 0.1);
+//                }
+//
+//                tbody td {
+//                    border-color: #4a5568;
+//                }
+//            }
+//        }
+//
+//        .form-control {
+//            background-color: #4a5568;
+//            border-color: #718096;
+//            color: #e2e8f0;
+//
+//            &::placeholder {
+//                color: #a0aec0;
+//            }
+//        }
+//
+//        .modal-content {
+//            background-color: #2d3748;
+//            color: #e2e8f0;
+//        }
+//    }
+//}

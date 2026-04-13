@@ -36,12 +36,12 @@
                         <ul class="nav nav-pills nav-fill mb-4" id="categoryTabs" role="tablist">
                             @foreach($categories as $index => $category)
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link {{ $index === 0 ? 'active' : '' }}" 
-                                       id="category-{{ $category->id }}-tab" 
-                                       data-toggle="pill" 
-                                       href="#category-{{ $category->id }}" 
-                                       role="tab" 
-                                       aria-controls="category-{{ $category->id }}" 
+                                    <a class="nav-link {{ $index === 0 ? 'active' : '' }}"
+                                       id="category-{{ $category->id }}-tab"
+                                       data-toggle="pill"
+                                       href="#category-{{ $category->id }}"
+                                       role="tab"
+                                       aria-controls="category-{{ $category->id }}"
                                        aria-selected="{{ $index === 0 ? 'true' : 'false' }}"
                                        data-category-id="{{ $category->id }}">
                                         <i class="fas fa-calendar-alt mr-2"></i>
@@ -55,11 +55,11 @@
                         <!-- Category Content -->
                         <div class="tab-content" id="categoryTabsContent">
                             @foreach($categories as $index => $category)
-                                <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" 
-                                     id="category-{{ $category->id }}" 
-                                     role="tabpanel" 
+                                <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
+                                     id="category-{{ $category->id }}"
+                                     role="tabpanel"
                                      aria-labelledby="category-{{ $category->id }}-tab">
-                                    
+
                                     @if($category->description)
                                         <div class="category-description mb-4">
                                             <div class="card">
@@ -78,11 +78,11 @@
                                                         <div class="appointment-card card h-100 {{ $appointment->available_capacity <= 0 ? 'card-disabled' : '' }}">
                                                             <div class="card-body d-flex flex-column">
                                                                 <h5 class="card-title">{{ $appointment->title }}</h5>
-                                                                
+
                                                                 @if($appointment->description)
                                                                     <p class="card-text text-muted">{{ Str::limit($appointment->description, 100) }}</p>
                                                                 @endif
-                                                                
+
                                                                 <div class="appointment-details mt-auto">
                                                                     <div class="appointment-time mb-2">
                                                                         <i class="fas fa-calendar text-primary mr-2"></i>
@@ -100,9 +100,9 @@
                                                                             <span class="text-danger">Betelt</span>
                                                                         @endif
                                                                     </div>
-                                                                    
+
                                                                     @if($appointment->available_capacity > 0)
-                                                                        <button type="button" 
+                                                                        <button type="button"
                                                                                 class="btn btn-primary btn-block book-appointment-btn"
                                                                                 data-appointment-id="{{ $appointment->id }}"
                                                                                 data-appointment-title="{{ $appointment->title }}"
@@ -161,7 +161,7 @@
                 @csrf
                 <div class="modal-body">
                     <input type="hidden" name="appointment_id" id="appointmentId">
-                    
+
                     <div class="appointment-summary mb-4">
                         <div class="card bg-light">
                             <div class="card-body">
@@ -183,11 +183,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name" class="form-label">Név <span class="text-danger">*</span></label>
-                                <input type="text" 
-                                       class="form-control @error('name') is-invalid @enderror" 
-                                       id="name" 
-                                       name="name" 
-                                       value="{{ old('name') }}" 
+                                <input type="text"
+                                       class="form-control @error('name') is-invalid @enderror"
+                                       id="name"
+                                       name="name"
+                                       value="{{ old('name') }}"
                                        placeholder="Adja meg a nevét"
                                        required>
                                 @error('name')
@@ -198,11 +198,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email" class="form-label">E-mail cím <span class="text-danger">*</span></label>
-                                <input type="email" 
-                                       class="form-control @error('email') is-invalid @enderror" 
-                                       id="email" 
-                                       name="email" 
-                                       value="{{ old('email') }}" 
+                                <input type="email"
+                                       class="form-control @error('email') is-invalid @enderror"
+                                       id="email"
+                                       name="email"
+                                       value="{{ old('email') }}"
                                        placeholder="pelda@email.com"
                                        required>
                                 @error('email')
@@ -214,11 +214,11 @@
 
                     <div class="form-group">
                         <label for="phone" class="form-label">Telefonszám</label>
-                        <input type="tel" 
-                               class="form-control @error('phone') is-invalid @enderror" 
-                               id="phone" 
-                               name="phone" 
-                               value="{{ old('phone') }}" 
+                        <input type="tel"
+                               class="form-control @error('phone') is-invalid @enderror"
+                               id="phone"
+                               name="phone"
+                               value="{{ old('phone') }}"
                                placeholder="+36 30 123 4567">
                         @error('phone')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -227,10 +227,10 @@
 
                     <div class="form-group">
                         <label for="message" class="form-label">Üzenet</label>
-                        <textarea class="form-control @error('message') is-invalid @enderror" 
-                                  id="message" 
-                                  name="message" 
-                                  rows="3" 
+                        <textarea class="form-control @error('message') is-invalid @enderror"
+                                  id="message"
+                                  name="message"
+                                  rows="3"
                                   placeholder="További információk, kérések...">{{ old('message') }}</textarea>
                         @error('message')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -260,9 +260,9 @@
 </div>
 @endsection
 
-@push('styles')
-<link rel="stylesheet" href="{{ asset('timebooking/css/site-timebooking.css') }}">
-@endpush
+{{--@push('styles')--}}
+{{--<link rel="stylesheet" href="{{ asset('timebooking/css/site-timebooking.css') }}">--}}
+{{--@endpush--}}
 
 @push('scripts')
 <script src="{{ asset('timebooking/js/site-timebooking.js') }}"></script>

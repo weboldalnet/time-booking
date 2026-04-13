@@ -17,6 +17,11 @@ class TimeBookingServiceProvider extends ServiceProvider
         // Load migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        // Publish config
+        $this->publishes([
+            __DIR__.'/../config/timebooking.php' => config_path('timebooking.php'),
+        ], 'timebooking-config');
+
         // Publish views
         $this->publishes([
             __DIR__.'/../resources/views/admin' => resource_path('views/admin'),
@@ -30,6 +35,7 @@ class TimeBookingServiceProvider extends ServiceProvider
 
         // Publish all
         $this->publishes([
+            __DIR__.'/../config/timebooking.php' => config_path('timebooking.php'),
             __DIR__.'/../resources/views/admin' => resource_path('views/admin'),
             __DIR__.'/../resources/views/site' => resource_path('views/site'),
             __DIR__.'/../public' => public_path('timebooking'),
@@ -38,6 +44,10 @@ class TimeBookingServiceProvider extends ServiceProvider
 
     public function register()
     {
-        // Register any application services
+        // Merge package config with application config
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/timebooking.php',
+            'timebooking'
+        );
     }
 }
